@@ -6,11 +6,12 @@
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:56:09 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/10 00:56:09 by cocheong         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:43:10 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_ptrlength(unsigned long long n)
 {
@@ -39,6 +40,6 @@ void	ft_putptr(unsigned long long n)
 		if (n <= 9)
 			ft_putchar_fd((n + '0'), 1);
 		else
-			fd_putchar_fd((n - 10 + 'a'), 1);
+			ft_putchar_fd((n - 10 + 'a'), 1);
 	}
 }

@@ -6,11 +6,12 @@
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:06:34 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/08 22:06:34 by cocheong         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:22:30 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	length(unsigned int n)
 {
@@ -27,7 +28,7 @@ int	length(unsigned int n)
 	return (len);
 }
 
-char	ft_uitoa(unsigned int n)
+char	*ft_uitoa(unsigned int n)
 {
 	char	*num;
 	int		len;

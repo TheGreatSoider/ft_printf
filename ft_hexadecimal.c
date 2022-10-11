@@ -6,14 +6,14 @@
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 02:22:30 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/09 02:22:30 by cocheong         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:18:09 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-int	hexlength(unsigned int n)
+int	ft_hexlength(unsigned int n)
 {
 	int	len;
 
@@ -42,9 +42,9 @@ void	ft_puthex(unsigned int n, const char format)
 		else
 		{
 			if (format == 'x')
-				fd_putchar_fd((n - 10 + 'a'), 1);
+				ft_putchar_fd((n - 10 + 'a'), 1);
 			else
-				fd_putchar_fd((n - 10 + 'A'), 1);
+				ft_putchar_fd((n - 10 + 'A'), 1);
 		}
 	}
 }

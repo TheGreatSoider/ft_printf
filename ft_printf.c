@@ -6,7 +6,7 @@
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 23:29:43 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/03 23:29:43 by cocheong         ###   ########.fr       */
+/*   Updated: 2022/10/11 14:58:11 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	ft_formats(va_list args, const char format)
 	if (format == 'c')
 		print += ft_printchar(va_arg(args, int));
 	else if (format == 's')
-		print += ft_printstr(va_arg(args, char *));
+		print += ft_putstr(va_arg(args, char *));
 	else if (format == 'p')
 		print += ft_print_ptr(va_arg(args, unsigned long long));
 	else if (format == 'd' || format == 'i')
-		print += ft_printnbr(va_arg(args, int));
+		print += ft_putnbr(va_arg(args, int));
 	else if (format == 'u')
 		print += ft_print_unsigned(va_arg(args, unsigned int));
 	else if (format == 'x' || format == 'X')

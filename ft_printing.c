@@ -6,11 +6,12 @@
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:11:46 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/08 22:11:46 by cocheong         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:24:23 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft.h"
 
 int	ft_putstr(char *str)
 {
@@ -19,8 +20,8 @@ int	ft_putstr(char *str)
 	i = 0;
 	if (str == 0)
 	{
-		write (1, '("null")', 6);
-		return (0);
+		write (1, "(null)", 6);
+		return (6);
 	}
 	while (str[i] != '\0')
 	{
@@ -79,6 +80,6 @@ int	ft_print_hex(unsigned int n, const char format)
 	if (n == 0)
 		return (write(1, "0", 1));
 	else
-		ft_put_hex(n, format);
+		ft_puthex(n, format);
 	return (ft_hexlength(n));
 }
