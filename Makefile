@@ -16,6 +16,8 @@ INCLUDES	= ./include
 
 LIBFT	= Libft
 
+LIBFT_PATH	= ./Libft
+
 MAIN_DIR	= $(shell pwd)
 
 CC	= gcc
@@ -42,11 +44,12 @@ $(NAME): $(OBJ)
 		$(AR) $(NAME) $(OBJ)
 
 clean:
+		make -C $(LIBFT_PATH) clean
 		/bin/rm -rf $(OBJ)
 
 fclean: clean
+		make -C $(LIBFT_PATH) fclean
 		/bin/rm -rf $(NAME)
-		/bin/rm -rf $(LIBFT)/libft.a
 
 re: fclean all
 
