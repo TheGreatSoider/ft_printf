@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_unsigned.c                                      :+:      :+:    :+:   */
+/*   ft_hexadecimal.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/08 22:06:34 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/08 22:06:34 by cocheong         ###   ########.fr       */
+/*   Created: 2022/10/09 02:22:30 by cocheong          #+#    #+#             */
+/*   Updated: 2022/10/09 02:22:30 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	length(unsigned int n)
+int	hexlength(unsigned int n)
 {
 	int	len;
 
@@ -22,26 +22,28 @@ int	length(unsigned int n)
 	while (n != 0)
 	{
 		len++;
-		n = (n / 10);
+		n = n / 16;
 	}
 	return (len);
 }
 
-char	ft_uitoa(unsigned int n)
+void	ft_puthex(unsigned int n, const char format)
 {
-	char	*num;
-	int		len;
-
-	len = length(n);
-	num = ft_calloc(sizeof(char), len + 1);
-	if (num == NULL)
-		return (NULL);
-	num[len--] = '\0';
-	while (n > 0)
+	if (n >= 16)
 	{
-		num[len] = (n % 10) + '0';
-		n = n / 10;
-		len--;
+		ft_puthex(n / 16, format);
+		ft_puthex(n % 16, format);
 	}
-	return (num);
+	else
+	{
+		if (n <= 9)
+			ft_putchar_fd((n + '0'), 1);
+		else
+		{
+			if (format == 'x')
+				ft_putchar_fd((n - 10 + 'a'), 1);
+			else
+				ft_putchar_fd((n - 10 + 'A'), 1);
+		}
+	}
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.c                                       :+:      :+:    :+:   */
+/*   ft_unsigned.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cocheong <cocheong@student.42kl.my>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 00:56:09 by cocheong          #+#    #+#             */
-/*   Updated: 2022/10/10 00:56:09 by cocheong         ###   ########.fr       */
+/*   Created: 2022/10/08 22:06:34 by cocheong          #+#    #+#             */
+/*   Updated: 2022/10/08 22:06:34 by cocheong         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
-int	ft_ptrlength(unsigned long long n)
+int	length(unsigned int n)
 {
 	int	len;
 
@@ -22,23 +22,26 @@ int	ft_ptrlength(unsigned long long n)
 	while (n != 0)
 	{
 		len++;
-		n = n / 16;
+		n = (n / 10);
 	}
 	return (len);
 }
 
-void	ft_putptr(unsigned long long n)
+char	*ft_uitoa(unsigned int n)
 {
-	if (n >= 16)
+	char	*num;
+	int		len;
+
+	len = length(n);
+	num = ft_calloc(sizeof(char), len + 1);
+	if (num == NULL)
+		return (NULL);
+	num[len--] = '\0';
+	while (n > 0)
 	{
-		ft_putptr(n / 16);
-		ft_putptr(n % 16);
+		num[len] = (n % 10) + '0';
+		n = n / 10;
+		len--;
 	}
-	else
-	{
-		if (n <= 9)
-			ft_putchar_fd((n + '0'), 1);
-		else
-			fd_putchar_fd((n - 10 + 'a'), 1);
-	}
+	return (num);
 }

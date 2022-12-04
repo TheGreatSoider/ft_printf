@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_putstr(char *str)
 {
@@ -19,7 +19,7 @@ int	ft_putstr(char *str)
 	i = 0;
 	if (str == 0)
 	{
-		write (1, '("null")', 6);
+		write (1, "null", 4);
 		return (0);
 	}
 	while (str[i] != '\0')
@@ -79,6 +79,6 @@ int	ft_print_hex(unsigned int n, const char format)
 	if (n == 0)
 		return (write(1, "0", 1));
 	else
-		ft_put_hex(n, format);
-	return (ft_hexlength(n));
+		ft_puthex(n, format);
+	return (hexlength(n));
 }
